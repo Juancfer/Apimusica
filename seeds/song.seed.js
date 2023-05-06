@@ -78,11 +78,9 @@ const songSeed = async () => {
     songList = songList.map((song) => {
       const randomArtist = artists[generateRandom(0, artists.length - 1)]
       song.artist = randomArtist.id;
-      console.log(song)
       return new Song(song)
     });
 
-    console.log("AQUI")
     await Song.insertMany(songList);
     console.log("Canciones creadas correctamente");
   } catch (error) {
