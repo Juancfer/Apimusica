@@ -667,7 +667,7 @@
 				{
 					"name": "Delete Song",
 					"request": {
-						"method": "POST",
+						"method": "DELETE",
 						"header": [
 							{
 								"key": "Content-Type",
@@ -682,7 +682,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": " {\r\n    \"id\": \"645617066ee75d8437097da9\"\r\n  }",
+							"raw": " {\r\n    \"id\": \"645617066ee75d8437097da8\"\r\n  }",
 							"options": {
 								"raw": {
 									"language": "json"
