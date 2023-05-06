@@ -1,0 +1,29 @@
+{
+  "name": "simple-template",
+  "version": "1.0.0",
+  "description": "Hola este es el repo de template",
+  "main": "index.js",
+  "scripts": {
+    "start": "node --watch index.js",
+    "seed:user": "node ./seeds/user.seed.js",
+    "seed:artist": "node ./seeds/artist.seed.js",
+    "seed:song": "node ./seeds/song.seed.js",
+    "seed:playlist": "node ./seeds/playlist.seed.js",
+    "lint": "eslint",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "husky install"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
+    "eslint": "^8.38.0",
+    "husky": "^8.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^7.1.0"
+  }
+}

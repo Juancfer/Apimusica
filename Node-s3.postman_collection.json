@@ -1,0 +1,804 @@
+{
+	"info": {
+		"_postman_id": "45b9147c-47fc-4f34-8f55-829d36f11a80",
+		"name": "Node-s3",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "27142612",
+		"_collection_link": "https://solar-shadow-292261.postman.co/workspace/Team-Workspace~a177c5f4-a623-49dd-8efe-2f6293986675/collection/27142612-45b9147c-47fc-4f34-8f55-829d36f11a80?action=share&creator=27142612&source=collection_link"
+	},
+	"item": [
+		{
+			"name": "Song",
+			"item": [
+				{
+					"name": "Get Songs",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/song?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"song"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Song by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/song/645617066ee75d8437097dac",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"song",
+								"645617066ee75d8437097dac"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Song",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\": \"Yonaguni\",\r\n    \"duration\": 280,\r\n    \"releaseYear\": 2023,\r\n    \"artist\": \"645611979f9a89634c55f491\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/song",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"song"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Song by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/song/64562057eafcfa8ddb63ff59",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"song",
+								"64562057eafcfa8ddb63ff59"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Songs by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"duration\": 444\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/song/645617066ee75d8437097db1?duration=220",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"song",
+								"645617066ee75d8437097db1"
+							],
+							"query": [
+								{
+									"key": "duration",
+									"value": "220"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get User by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/64561154df6eeeee274a377c",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"64561154df6eeeee274a377c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Rosalia\",\r\n    \"lastname\": \"Motomami\",\r\n    \"email\": \"juan@juan.com\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete User by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/user/645623d198dee53ce7d64650",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"645623d198dee53ce7d64650"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update User by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"fran@fran.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/user/64561154df6eeeee274a377c",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"user",
+								"64561154df6eeeee274a377c"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artist",
+			"item": [
+				{
+					"name": "Get Artist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/artist?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"artist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Artist by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/artist/645611979f9a89634c55f491",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"artist",
+								"645611979f9a89634c55f491"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Artist by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/artist/name/alex",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"artist",
+								"name",
+								"alex"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Artist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Fran\",\r\n    \"gender\": \"male\",\r\n    \"activeSince\": 2023,\r\n    \"country\": \"Spain\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/artist",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"artist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Artist by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/artist/645622de98dee53ce7d64648",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"artist",
+								"645622de98dee53ce7d64648"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Artist by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"country\": \"Venezuela\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/artist/645611979f9a89634c55f490",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"artist",
+								"645611979f9a89634c55f490"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "PlayList",
+			"item": [
+				{
+					"name": "Get Playlist",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/playlist?page=1&limit=10",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "limit",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Playlist by ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/playlist/64561b0961f6f6d297843173",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist",
+								"64561b0961f6f6d297843173"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search Playlist by Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/playlist/name/Alex",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist",
+								"name",
+								"Alex"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Playlist",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"name\": \"Jose\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/playlist",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Song",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": \"645617066ee75d8437097da9\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/playlist/64561b0961f6f6d297843173/song",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist",
+								"64561b0961f6f6d297843173",
+								"song"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Song",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": " {\r\n    \"id\": \"645617066ee75d8437097da9\"\r\n  }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/playlist/64561b0961f6f6d297843173/song",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist",
+								"64561b0961f6f6d297843173",
+								"song"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "10",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete PlayList by ID",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/playlist/64562afe2f4d326f3f9261cb",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist",
+								"64562afe2f4d326f3f9261cb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update PlayList by ID",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Musica para escuchar en el coche\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/playlist/64561b0961f6f6d297843173",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"playlist",
+								"64561b0961f6f6d297843173"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:3000",
+			"type": "string"
+		}
+	]
+}
