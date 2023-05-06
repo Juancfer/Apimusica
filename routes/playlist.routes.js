@@ -38,7 +38,14 @@ router.get("/", async (req, res) => {
 router.get("/:id", async (req, res) => {
   try {
     const id = req.params.id;
-    const playlist = await PlayList.findById(id).populate(["user", "song"]);
+    const playlist = await PlayList.findById(id)
+    .populate({
+      path: "song",
+      populate: {
+        path: "artist"
+      }
+    }).populate("user")
+
     if (playlist) {
       res.json(playlist);
     } else {
@@ -81,25 +88,28 @@ router.post("/", async (req, res) => {
 router.post("/:id/song", async (req, res) => {
   try {
     const playListId = req.params.id;
-    const songId = req.body.id;
-    const song = await Song.findById(songId);
     const playList = await PlayList.findById(playListId);
+    
+    if(playList) {
+      const songId = req.body.id;
+      const song = await Song.findById(songId);
 
-    if(song) {
-      const playListSong = playList.song.includes(songId)
-      if(playListSong) {
-        res.status(409).json({});
+      if(song) {
+        if(playList.song.includes(songId)) {
+          res.status(409).json({ message: "La cancion ya existe en la playlist" });
+        } else {
+          playList.song.push(songId)
+          await playList.save();
+          res.status(200).json(playList)
+        }
       } else {
-        playList.song.push(songId)
-        await playList.save();
-        res.status(200).json(playList)
+        res.status(400).json({ message: "El ID de la cancion es requerido" });
       }
     } else {
       res.status(404).json({});
     }
   } catch(error){
-    console.log(error);
-    res.status(400).json(error);
+    res.status(500).json(error);
   }
 });
 
@@ -107,26 +117,30 @@ router.post("/:id/song", async (req, res) => {
 router.delete("/:id/song", async (req, res) => {
   try {
     const playListId = req.params.id;
-    const songId = req.body.id;
-    const song = await Song.findById(songId);
     const playList = await PlayList.findById(playListId);
+    
+    if(playList) {
+      const songId = req.body.id;
+      const song = await Song.findById(songId);
 
-    if(song) {
-      const playListSong = playList.song.includes(songId)
-      if(playListSong) {
-        res.status(409).json({});
+      if(song) {
+        const index = playList.song.indexOf(songId);
+
+        if(index > -1) {
+          playList.song.splice(index, 1);
+          await playList.save();
+          res.status(200).json(playList)
+        } else {
+          res.status(404).json({ message: "La cancion no existe en la playlist" });
+        }
       } else {
-        console.log("Eliminar la cancion del array y guardar la playlist nuevamente")
-        //playList.song.push(songId)
-        //await playList.save();
-        //res.status(200).json(playList)
+        res.status(400).json({ message: "El ID de la cancion es requerido" });
       }
     } else {
       res.status(404).json({});
     }
   } catch(error){
-    console.log(error);
-    res.status(400).json(error);
+    res.status(500).json(error);
   }
 });
 

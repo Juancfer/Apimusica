@@ -4,7 +4,8 @@
   "description": "Hola este es el repo de template",
   "main": "index.js",
   "scripts": {
-    "start": "node --watch index.js",
+    "start:watch": "node --watch index.js",
+    "start": "node index.js",
     "seed:user": "node ./seeds/user.seed.js",
     "seed:artist": "node ./seeds/artist.seed.js",
     "seed:song": "node ./seeds/song.seed.js",
